@@ -34,7 +34,7 @@ since javascript is dynamic language instead of working with interfaces we will 
 */
 
 //lets implement the King class which would be Joffery
-var KingJoffery = (function () {
+let KingJoffery = (function () {
     class KingJoffery {
         constructor() {
         }
@@ -46,3 +46,15 @@ var KingJoffery = (function () {
     }
     return KingJoffery;
 })();
+
+//now lets implement hand of king class
+
+let LordTywin = (function(){
+    class LordTywin{
+        makeDecision(){
+            console.log("Thinking and  making decision");
+        }
+    }
+    return  new LordTywin;
+})();
+
