@@ -49,12 +49,33 @@ let KingJoffery = (function () {
 
 //now lets implement hand of king class
 
-let LordTywin = (function(){
-    class LordTywin{
-        makeDecision(){
+let LordTywin = (function () {
+    class LordTywin {
+        makeDecision() {
             console.log("Thinking and  making decision");
         }
     }
-    return  new LordTywin;
+    return new LordTywin;
 })();
+
+//let write concrete factory for Lannisters
+let LannisterFactroy = (function () {
+    class LannisterFactroy {
+        getKing() {
+            return new KingJoffery();
+        }
+        getHandOfTheKing(){
+            return new  LordTywin();
+        }
+    }
+    return LannisterFactroy;
+
+})();
+
+
+
+
+
+
+
 
