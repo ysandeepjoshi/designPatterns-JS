@@ -72,7 +72,26 @@ let LannisterFactroy = (function () {
 
 })();
 
+//To make use of the Abstract Factory we'll first need a class that requires the use of
+//some ruling family
 
+let CourtSession = (function(){
+    class CourtSession{
+        constructor(abstractFactory){
+            this.abstractFactory = abstractFactory;
+            this.COMPLAINT_THRESHOLD = 10;
+        }
+        complaintPresented(complaint){
+            if(complaint.severity< this.COMPLAINT_THRESHOLD){
+                this.abstractFactory.getHandOfTheKing().makeDecision();
+            }
+            else{
+                this.abstractFactory.getKing().makeDecision();
+            }
+        }
+    }
+    return CourtSession;
+})();
 
 
 
