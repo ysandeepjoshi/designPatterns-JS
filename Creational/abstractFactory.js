@@ -54,7 +54,7 @@ let LordTywin = (function () {
         constructor(){
         }
         makeDecision() {
-            console.log("Thinking and  making decision");
+            console.log("Lord Tywin Thinking and  making decision");
         }
     }
     return LordTywin;
@@ -73,6 +73,49 @@ let LannisterFactory = (function () {
     return LannisterFactory;
 
 })();
+
+let KingAerys = (function(){
+    class KingAerys{
+        constructor(){
+
+        }
+        makeDecision() {
+            console.log("Decision made by King Aerys");
+        }
+        marry() {
+        }
+    }
+    return KingAerys;
+})();
+
+let LordConnington = (function(){
+    class LordConnington{
+        constructor(){
+        }
+        makeDecision() {
+            console.log("Lord Connington Thinking and  making decision");
+        }
+    }
+    return LordConnington;
+})();
+
+//lets create the same for targeryen family
+let TargaryenFactory = (function(){
+    class TargaryenFactory{
+        constructor(){
+
+        }
+        getKing(){
+            return new KingAerys();
+        }
+        getHandOfTheKing(){
+            return new LordConnington();
+        }
+    }
+    return TargaryenFactory;
+})();
+
+
 
 //To make use of the Abstract Factory we'll first need a class that requires the use of
 //some ruling family
@@ -95,9 +138,11 @@ let CourtSession = (function(){
     return CourtSession;
 })();
 
-//To make use of the Abstract Factory we'll first need a class that requires the use of
-//some ruling family
 
+
+let courtSession1 = new CourtSession(new TargaryenFactory());
+courtSession1.complaintPresented({ severity: 8 });
+courtSession1.complaintPresented({ severity: 12 });
 
 let courtSession2 = new CourtSession(new LannisterFactory());
 courtSession2.complaintPresented({ severity: 8 });
