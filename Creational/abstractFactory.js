@@ -51,24 +51,26 @@ let KingJoffery = (function () {
 
 let LordTywin = (function () {
     class LordTywin {
+        constructor(){
+        }
         makeDecision() {
             console.log("Thinking and  making decision");
         }
     }
-    return new LordTywin;
+    return LordTywin;
 })();
 
 //let write concrete factory for Lannisters
-let LannisterFactroy = (function () {
-    class LannisterFactroy {
+let LannisterFactory = (function () {
+    class LannisterFactory {
         getKing() {
             return new KingJoffery();
         }
         getHandOfTheKing(){
-            return new  LordTywin();
+            return new LordTywin();
         }
     }
-    return LannisterFactroy;
+    return LannisterFactory;
 
 })();
 
@@ -93,8 +95,13 @@ let CourtSession = (function(){
     return CourtSession;
 })();
 
+//To make use of the Abstract Factory we'll first need a class that requires the use of
+//some ruling family
 
 
+let courtSession2 = new CourtSession(new LannisterFactory());
+courtSession2.complaintPresented({ severity: 8 });
+courtSession2.complaintPresented({ severity: 12 });
 
 
 
